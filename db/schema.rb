@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520171101) do
+ActiveRecord::Schema.define(version: 20140520193407) do
+
+  create_table "rushees", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "preferred_name"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "hometown"
+    t.string   "state"
+    t.string   "high_school"
+    t.string   "grade"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rushees", ["created_at"], name: "index_rushees_on_created_at"
+  add_index "rushees", ["email"], name: "index_rushees_on_email"
 
   create_table "users", force: true do |t|
     t.string   "first_name"
