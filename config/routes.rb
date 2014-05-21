@@ -1,4 +1,5 @@
 RushRankerRails::Application.routes.draw do
+  get "rushees/new"
    resources :users
    resources :sessions, only: [:new, :create, :destroy]
    resources :rushees

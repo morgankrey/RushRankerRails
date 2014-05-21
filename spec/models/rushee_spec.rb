@@ -97,6 +97,16 @@ describe Rushee do
       it { should_not be_valid }
    end
 
+   describe "email address with mixed case" do
+      let(:mixed_case_email) { "RuSHEE@exaMPlE.cOM" }
+
+      it "should be saved as all lowercase " do
+         @rushee.email = mixed_case_email
+         @rushee.save
+         expect(@rushee.reload.email).to eq mixed_case_email.downcase
+      end
+   end
+
    describe "when score is not present" do
       before { @rushee.score = nil }
       it { should_not be_valid }

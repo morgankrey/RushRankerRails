@@ -28,4 +28,6 @@ RushRankerRails::Application.configure do
   config.assets.debug = true
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.action_controller.include_all_helpers = true
 end

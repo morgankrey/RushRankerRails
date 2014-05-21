@@ -1,0 +1,12 @@
+<% provide(:title, 'Add rushee') %>
+<h1>Add rushee</h1>
+<div class="row">
+   <div class="span6 offset3">
+      <%= form_for(@rushee) do |f| %>
+         <%= render 'fields', f: f %>
+         <div>
+            <%= f.submit "Create rushee", class: "btn btn-large btn-primary" %>
+         </div>
+      <% end %>
+   </div>
+</div>

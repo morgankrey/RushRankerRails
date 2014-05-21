@@ -1,0 +1,33 @@
+<%= render 'shared/rushee_error_messages' %>
+
+<%= f.label :first_name, "First Name" %>
+<%= f.text_field :first_name %>
+
+<%= f.label :last_name, "Last Name" %>
+<%= f.text_field :last_name %>
+
+<%= f.label :preferred_name, "Preferred Name" %>
+<%= f.text_field :preferred_name %>
+
+<%= f.label :phone_number, "Phone Number" %>
+<%= f.text_field :phone_number %>
+
+<%= f.label :email, "Email" %>
+<%= f.text_field :email %>
+
+<%= f.label :hometown, "Hometown" %>
+<%= f.text_field :hometown %>
+
+<%= f.label :state, "State" %>
+<%= f.select :state, options_for_select(us_states) %>
+
+<%= f.label :high_school, "High School" %>
+<%= f.text_field :high_school %>
+
+<%= f.label :grade, "Grade" %>
+<%= f.select :grade, [['Freshman','FR'],
+                      ['Sophomore','SO'],
+                      ['Junior','JR'],
+                      ['Senior','SR']] %>
+
+<%= f.file_field :photo %>

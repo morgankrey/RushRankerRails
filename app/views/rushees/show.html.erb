@@ -1,0 +1,11 @@
+<% provide(:title, @rushee.email) %>
+<div class="row">
+   <aside class="span4">
+      <section>
+         <h1>
+            <% @rushee.photo(:medium) %>
+            <% @rushee.first_name %> <%= @rushee.last_name %>
+         </h1>
+      </section>
+   </aside>
+</div>
