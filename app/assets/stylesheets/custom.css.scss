@@ -12,11 +12,25 @@ $grayMediumLight: #eaeaea;
 /* universal */
 
 html{
-   overflow-y: scroll;
+   overflow-y: visible;
 }
 
 body{
    padding-top: 60px;
+}
+
+html, body{
+   height: 100%;
+}
+
+#wrap{
+   min-height: 100%;
+   overflow: visible;
+}
+
+#main{
+   overflow: visible;
+   padding-bottom: 150px;
 }
 
 section{
@@ -81,9 +95,12 @@ p{
 
 footer{
    height: 150px;
-   padding-top: 5px;
+   margin-top: -150px;
+   clear: both;
+   padding-top: 20px;
    border-top: 1px solid $grayMediumLight;
    color: $grayLight;
+   position: relative;
    a{
       color: $gray;
       &:hover{
@@ -121,10 +138,14 @@ aside{
          font-size: 1.4em;
          text-align: left;
          letter-spacing: -1px;
-         margin-bottom: 3px;
+         margin-bottom: 5px;
          margin-top: 0px;
       }
    }
+}
+
+.rushee_info{
+   line-height: 1;
 }
 
 .photo{
@@ -143,6 +164,59 @@ aside{
       &:last-child{
          border-bottom: 1px solid $grayLighter;
       }
+   }
+}
+
+/* Rushees index */
+.rushees{
+   list-style: none;
+   margin: 0;
+   li{
+      overflow: auto;
+      padding: 10px 0;
+      border-top: 1px solid $grayLighter;
+      &:last-child{
+         border-bottom: 1px solid $grayLighter;
+      }
+   }
+}
+
+#comments{
+   list-style: none;
+   margin: 0;
+   li{
+      overflow: auto;
+      padding: 10px 0;
+      border-top: 1px solid $grayLighter;
+      &:last-child{
+         border-bottom: 1px solid $grayLighter;
+      }
+   }
+}
+
+/* comments */
+.comments {
+  float: center;
+  list-style: none;
+  margin: 10px 0 0 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+} }
+.content {
+  word-wrap: break-word;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
    }
 }
 

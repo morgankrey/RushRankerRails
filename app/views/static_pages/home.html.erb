@@ -1,4 +1,20 @@
-<div class="center hero-unit">
-   <h1>Welcome to RushRanker</h1>
-   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+<% if signed_in? %>
+   <div class="center">
+      <h1>Welcome to RushRanker</h1>
+      <div class="span6">
+         <h3>Recent Comments</h3>
+         <ol class="comments">
+            <%= render @comments %>
+         </ol>
+      </div>
+      <div class="span5">
+         <h3>Recent Additions</h3>
+         <%= "#{@random.first_name} #{@random.last_name}" %>
+      </div>
+   </div>
+<% else %>
+   <div class="center hero-unit">
+      <h1>Welcome to RushRanker</h1>
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+   </div>
+<% end %>

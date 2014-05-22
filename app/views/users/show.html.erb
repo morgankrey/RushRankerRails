@@ -1,11 +1,7 @@
 <%= provide(:title, @user.email) %>
-<div class="row">
-   <aside class="span4">
-      <section>
-         <h1>
-            <%= image_tag @user.photo.url(:medium) %>
-            <%= @user.first_name %> <%= @user.last_name %>
-         </h1>
-      </section>
-   </aside>
-</div>
+<section>
+   <h1>
+      <%= image_tag @user.photo.url(:medium) %>
+      <%= @user.first_name %> <%= @user.last_name %>
+   </h1>
+</section>

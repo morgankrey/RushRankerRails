@@ -1,5 +1,16 @@
 <% provide(:title, 'Contact') %>
-<h1>Contact</h1>
-<p>
-   To learn more, email me. morgankrey@gmail.com.
-</p>
+<% if signed_in? %>
+   <div class="center">
+      <h1>Contact</h1>
+      <p>
+         To learn more, email me. morgankrey@gmail.com.
+      </p>
+   </div>
+<% else %>
+   <div class="center">
+      <h1>Contact</h1>
+      <p>
+         To learn more, email me. morgankrey@gmail.com.
+      </p>
+   </div>
+<% end %>

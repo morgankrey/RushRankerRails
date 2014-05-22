@@ -1,5 +1,16 @@
 <% provide(:title, 'About') %>
-<h1>About</h1>
-<p>
-   About coming soon
-</p>
+<% if signed_in? %>
+   <div class="center">
+      <h1>About</h1>
+      <p>
+         About coming soon
+      </p>
+   </div>
+<% else %>
+   <div class="center">
+      <h1>About</h1>
+      <p>
+         About coming soon
+      </p>
+   </div>
+<% end %>

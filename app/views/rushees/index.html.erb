@@ -1,0 +1,11 @@
+<% provide(:title, 'All rushees') %>
+<aside class="span10">
+   <h1>All rushees</h1>
+      <section>
+         <%= will_paginate %>
+            <ul class="rushees">
+               <%= render @rushees %>
+            </ul>
+         <%= will_paginate %>
+      </section>
+</aside>

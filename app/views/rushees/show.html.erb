@@ -1,11 +1,68 @@
-<% provide(:title, @rushee.email) %>
-<div class="row">
-   <aside class="span4">
-      <section>
-         <h1>
-            <% @rushee.photo(:medium) %>
-            <% @rushee.first_name %> <%= @rushee.last_name %>
-         </h1>
-      </section>
-   </aside>
+<% provide(:title, "#{@rushee.first_name} #{@rushee.last_name}") %>
+<div class="row-fluid">
+  <aside class="span4 offset1">
+     <section>
+        <h1>
+          <img src="http://img4.wikia.nocookie.net/__cb20131009153844/villains/images/f/f6/Grumpy_Cat.jpg" height="200" width="200" alt="">
+           <%#= @rushee.photo(:medium) %>
+        </h1>
+     </section>
+  </aside>
+  <aside class="span5 offset1">
+     <section class="rushee_info">
+        <h1>
+           <%= @rushee.first_name %> <%= @rushee.last_name %>
+           <div class="btn-group">
+             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+               Options <span class="caret"></span>
+             </button>
+             <ul class="dropdown-menu" role="menu">
+               <li><%= link_to "Edit", edit_rushee_path(@rushee) %></li>
+               <li><%= link_to "Horse", '#', data: { confirm: "Sure?" } %></li>
+               <% if current_user.admin? %>
+                 <li class="divider"></li>
+                  <li>
+                     <%= link_to "Delete rushee", @rushee, method: :delete,
+                                                    data: { confirm: "Sure?" }%>
+                  </li>
+               <% end %>
+             </ul>
+           </div>
+        </h1>
+        Email: <%= @rushee.email %>
+        <%= simple_format("\n") %>
+        Phone Number: (<%= @rushee.phone_number[0..2] %>)
+           <%= @rushee.phone_number[3..5] %>-<%= @rushee.phone_number[6..9] %>
+        <%= simple_format("\n") %>
+        Hometown: <%= @rushee.hometown %>, <%= @rushee.state %>
+        <%= simple_format("\n") %>
+        High School: <%= @rushee.high_school %>
+        <%= simple_format("\n") %>
+        Grade: <%= @rushee.grade %>
+        <%= simple_format("\n") %>
+     </section>
+  </aside>
 </div>
+<div class="row-fluid">
+  <aside id="comments" class="span5">
+    <section>
+      <h1>Comments (<%= @rushee.comments.count %>)</h1>
+      <%= render 'shared/comment_form' %>
+      <% if @rushee.comments.any? %>
+          <ol class="comments">
+            <%= render @comments %>
+          </ol>
+          <%= will_paginate @comments %>
+      <% end %>
+    </section>
+  </aside>
+  <aside class="span5 offset1">
+    <h4>Brothers Met</h4>
+    Some other stuff
+  </aside>
+</div>
+
+
+
+
+

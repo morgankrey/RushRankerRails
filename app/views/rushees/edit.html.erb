@@ -1,0 +1,12 @@
+<%= provide(:title, "Edit rushee") %>
+<div class="row">
+   <div class="span6 offset2">
+      <h1>Update rushee profile</h1>
+      <%= form_for(@rushee) do |f| %>
+         <%= render 'fields', f: f %>
+         <div>
+            <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+         </div>
+      <% end %>
+   </div>
+</div>

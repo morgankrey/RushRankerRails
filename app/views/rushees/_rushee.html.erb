@@ -1,0 +1,9 @@
+<li>
+   <%= rushee.photo(:thumb) %>
+   <%= link_to "#{rushee.first_name} #{rushee.last_name}", rushee %>
+   | <%= link_to "edit", edit_rushee_path(rushee) %>
+   <% if current_user.admin? %>
+      | <%= link_to "delete", rushee, method: :delete,
+                                    data: { confirm: "Sure?" } %>
+   <% end %>
+</li>
