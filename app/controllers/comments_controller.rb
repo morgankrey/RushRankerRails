@@ -11,6 +11,9 @@ class CommentsController < ApplicationController
    end
 
    def destroy
+      Comment.find(params[:id]).destroy
+      flash[:success] = "Comment deleted"
+      redirect_to rushees_url
    end
 
    private
@@ -20,5 +23,9 @@ class CommentsController < ApplicationController
 
       def _content
          content = params[:comment][:content]
+      end
+
+      def admin_user
+         flash[:alert] "Not authorized" unless current_user.admin?
       end
 end

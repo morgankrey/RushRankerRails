@@ -3,11 +3,11 @@ class RusheesController < ApplicationController
    before_action :admin_user, only: :destroy
 
    def index
-      @rushees = Rushee.paginate(page: params[:page])
+      @rushees = Rushee.reorder("last_name").paginate(page: params[:page])
    end
 
    def create
-      @rushee = Rushee.new(rushee_params)
+      @rushee = Rushee.new(rushee_params, score: Score.new(rushee_id: params[:id]))
       if @rushee.save
          flash[:success] = "Successfully added #{@rushee.first_name} #{@rushee.last_name}"
          redirect_to @rushee

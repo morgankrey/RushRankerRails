@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521202606) do
+ActiveRecord::Schema.define(version: 20140523151350) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20140521202606) do
     t.string   "state"
     t.string   "high_school"
     t.string   "grade"
-    t.integer  "score",              default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"
@@ -44,6 +43,15 @@ ActiveRecord::Schema.define(version: 20140521202606) do
 
   add_index "rushees", ["created_at"], name: "index_rushees_on_created_at"
   add_index "rushees", ["email"], name: "index_rushees_on_email"
+
+  create_table "scores", force: true do |t|
+    t.integer  "score",      default: 0
+    t.integer  "rushee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scores", ["rushee_id"], name: "index_scores_on_rushee_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

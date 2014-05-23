@@ -4,6 +4,7 @@ RushRankerRails::Application.routes.draw do
    resources :sessions, only: [:new, :create, :destroy]
    resources :rushees
    resources :comments, only: [:create, :destroy]
+   resources :scores, only: [:update]
    root 'static_pages#home'
    match '/game',     to: 'static_pages#game',      via: 'get'
    match '/signup',   to: 'users#new',              via: 'get'

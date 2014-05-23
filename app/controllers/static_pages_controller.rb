@@ -12,6 +12,10 @@ class StaticPagesController < ApplicationController
    end
 
    def game
+      @random1 = Rushee.get_random_rushee
+      @random2 = Rushee.get_random_rushee
+      while (@random1 == @random2)
+         @random2 = Rushee.get_random_rushee
+      end
    end
-
 end

@@ -220,6 +220,25 @@ aside {
    }
 }
 
+/* game window */
+.game-windows{
+   text-align: center;
+   float: center;
+   img{
+      padding:1px;
+      border:1px solid #021a40;
+      background-color: white;
+      max-width: 200px;
+      width: auto;
+      height: auto;
+      &:hover{
+         -moz-box-shadow: 0 0 10px black;
+         -webkit-box-shadow: 0 0 10px black;
+         box-shadow: 0 0 10px black;
+      }
+   }
+}
+
 /* forms */
 input, textarea, select, .uneditable-input{
    border: 1px solid #bbb;

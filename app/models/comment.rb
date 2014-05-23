@@ -9,4 +9,8 @@ class Comment < ActiveRecord::Base
    def self.get_all_recent_comments
       recents = Comment.all.sort_by(&:created_at).reverse[0..20]
    end
+
+   def self.written_by_current
+      current_user == self.user
+   end
 end

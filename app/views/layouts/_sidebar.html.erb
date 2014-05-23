@@ -5,7 +5,7 @@
          <% rushees = all_rushees %>
          <% rushees.each do |rushee| %>
             <li>
-               <%= link_to "#{rushee.first_name} #{rushee.last_name}, #{rushee.score}", rushee %>
+               <%= link_to "#{rushee.first_name} #{rushee.last_name}, #{rushee.score.score}", rushee %>
             </li>
          <% end %>
       </ul>

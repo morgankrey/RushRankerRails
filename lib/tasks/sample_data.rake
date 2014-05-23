@@ -28,16 +28,16 @@ namespace :db do
         high_school = "High School"
         grade = "FR"
         score = rand(1000)
-        Rushee.create!(first_name: first_name,
-                       last_name: last_name,
-                       preferred_name: first_name,
-                       email: email,
-                       phone_number: phone_number,
-                       hometown: hometown,
-                       state: state,
-                       high_school: high_school,
-                       grade: grade,
-                       score: score)
+        rushee = Rushee.create!(first_name: first_name,
+                                last_name: last_name,
+                                preferred_name: first_name,
+                                email: email,
+                                phone_number: phone_number,
+                                hometown: hometown,
+                                state: state,
+                                high_school: high_school,
+                                grade: grade)
+        rushee.score = Score.create!(score: score, rushee_id: rushee.id)
       end
       users = User.all(limit: 6)
       rushees = Rushee.all()
