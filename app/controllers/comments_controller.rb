@@ -11,9 +11,10 @@ class CommentsController < ApplicationController
    end
 
    def destroy
+      rushee = Rushee.find(Comment.find(params[:id])[:rushee_id])
       Comment.find(params[:id]).destroy
       flash[:success] = "Comment deleted"
-      redirect_to rushees_url
+      redirect_to rushee_path(rushee.id)
    end
 
    private
@@ -26,6 +27,6 @@ class CommentsController < ApplicationController
       end
 
       def admin_user
-         flash[:alert] "Not authorized" unless current_user.admin?
+         flash[:alert]="Not authorized" unless current_user.admin?
       end
 end
