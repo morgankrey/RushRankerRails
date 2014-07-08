@@ -1,5 +1,5 @@
 <li>
-   <%= rushee.photo(:thumb) %>
+   <%= image_tag rushee.photo(:thumb) %>
    <%= link_to "#{rushee.first_name} #{rushee.last_name}", rushee %>
    | <%= link_to "edit", edit_rushee_path(rushee) %>
    <% if current_user.admin? %>

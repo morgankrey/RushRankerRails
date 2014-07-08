@@ -1,7 +1,7 @@
 <h1>Left or Right</h1>
 <div class="game-windows">
    <div class="span5 offset1">
-      <%= link_to image_tag("http://img4.wikia.nocookie.net/__cb20131009153844/villains/images/f/f6/Grumpy_Cat.jpg"), score_path(@random1.score.id), method: :put %>
+      <%= link_to image_tag(@random1.photo(:medium)), score_path(@random1.score.id), method: :put %>
       <div>
          <%= "#{@random1.first_name} #{@random1.last_name}" %>
       </div>
@@ -10,12 +10,12 @@
       </div>
    </div>
    <div class="span5">
-      <%= link_to image_tag("http://img4.wikia.nocookie.net/__cb20131009153844/villains/images/f/f6/Grumpy_Cat.jpg"), score_path(@random2.score.id), method: :put %>
+      <%= link_to image_tag(@random2.photo(:medium)), score_path(@random2.score.id), method: :put %>
       <div>
          <%= "#{@random2.first_name} #{@random2.last_name}" %>
       </div>
       <div>
-         <%= button_to "Vote", score_path(@random1.score.id), class: "btn btn-primary btn-large", method: :put %>
+         <%= button_to "Vote", score_path(@random2.score.id), class: "btn btn-primary btn-large", method: :put %>
       </div>
    </div>
 </div>
