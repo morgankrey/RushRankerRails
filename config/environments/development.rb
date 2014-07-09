@@ -34,8 +34,8 @@ RushRankerRails::Application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      access_key_id: 'AKIAJKSTJTRUSA6ZHUSQ',
-      secret_access_key: '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'
+      access_key_id:
+      secret_access_key:
     },
     bucket: 'mwkrushranker',
     url: ':s3_domain_url',
