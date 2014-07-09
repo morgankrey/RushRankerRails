@@ -29,6 +29,7 @@ gem 'jbuilder', '1.0.2'
 gem 'sprockets', '2.11.0'
 gem 'paperclip', '~> 3.5.1'
 gem 'aws-sdk'
+gem 'aws-s3'
 
 group :doc do
    gem 'sdoc', '0.3.20', require: false

@@ -1,6 +1,7 @@
 namespace :db do
    desc "Fill database with sample data"
    task populate: :environment do
+      puts "Users"
       User.create!(first_name: "Morgan",
                    last_name: "Krey",
                    email: "morgankrey@gmail.com",
@@ -8,6 +9,7 @@ namespace :db do
                    password_confirmation: "mfaan1",
                    admin: true)
       30.times do |n|
+         puts n
          first_name = Faker::Name.first_name
          last_name = Faker::Name.last_name
          email = "example-#{n+1}@railstutorial.org"
@@ -18,6 +20,7 @@ namespace :db do
                       password: password,
                       password_confirmation: password)
       end
+      puts "Rushees"
       30.times do |n|
         first_name = Faker::Name.first_name
         last_name = Faker::Name.last_name
@@ -28,6 +31,7 @@ namespace :db do
         high_school = "High School"
         grade = "FR"
         score = rand(1000)
+        photo = File.open('/Users/Franz/Desktop/chance.jpg')
         rushee = Rushee.create!(first_name: first_name,
                                 last_name: last_name,
                                 preferred_name: first_name,
@@ -36,11 +40,14 @@ namespace :db do
                                 hometown: hometown,
                                 state: state,
                                 high_school: high_school,
-                                grade: grade)
+                                grade: grade,
+                                photo: photo)
         rushee.score = Score.create!(score: score, rushee_id: rushee.id)
+        puts n
       end
       users = User.all(limit: 6)
       rushees = Rushee.all()
+      puts "Comments"
       5.times do |n|
         content = Faker::Lorem.sentence(1)
         users.each{ |user| rushees.each{ |rushee| rushee.comments.create!(content: content, user: user) } }

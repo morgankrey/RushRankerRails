@@ -30,4 +30,16 @@ RushRankerRails::Application.configure do
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
   config.action_controller.include_all_helpers = true
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      access_key_id: 'AKIAJKSTJTRUSA6ZHUSQ',
+      secret_access_key: '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'
+    },
+    bucket: 'mwkrushranker',
+    url: ':s3_domain_url',
+    s3_permissions: 'public-read-write',
+    path: '/:class/:attachment/:id_partition/:style/:filename'
+  }
 end
