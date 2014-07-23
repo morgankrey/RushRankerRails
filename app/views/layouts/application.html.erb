@@ -12,16 +12,26 @@
       <div id="wrap">
         <div class="container-fluid" id="main">
           <div class="row-fluid">
-               <div class="span2">
-                  <%= render 'layouts/sidebar' %>
-               </div>
-               <div class="span10">
-                  <% flash.each do |key,value| %>
-                    <div class="alert alert-<%= key %>"><%= value %></div>
-                  <% end %>
-                  <%= yield %>
-                  <%= debug(params) if Rails.env.development? %>
-               </div>
+               <% if signed_in? %>
+                <div class="span2">
+                   <%= render 'layouts/sidebar' %>
+                </div>
+                <div class="span10">
+                   <% flash.each do |key,value| %>
+                     <div class="alert alert-<%= key %>"><%= value %></div>
+                   <% end %>
+                   <%= yield %>
+                   <%= debug(params) if Rails.env.development? %>
+                </div>
+               <% else %>
+                <div class="span12">
+                   <% flash.each do |key,value| %>
+                     <div class="alert alert-<%= key %>"><%= value %></div>
+                   <% end %>
+                   <%= yield %>
+                   <%= debug(params) if Rails.env.development? %>
+                </div>
+               <% end %>
              <%= render 'layouts/footer' %>
            </div>
         </div>

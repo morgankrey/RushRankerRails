@@ -1,5 +1,7 @@
 class Rushee < ActiveRecord::Base
   has_many :comments, dependent: :destroy
+  has_many :reverse_relationships, class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :reverse_relationships, source: :user
   has_one :score, dependent: :destroy
   before_save { self.email = email.downcase }
 

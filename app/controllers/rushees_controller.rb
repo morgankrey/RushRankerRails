@@ -46,6 +46,13 @@ class RusheesController < ApplicationController
       redirect_to rushees_url
    end
 
+   def followers
+      @title = "Followers"
+      @rushee = Rushee.find(params[:id])
+      @users = @rushee.followers.paginate(page: params[:page])
+      render 'show_follow'
+   end
+
    private
 
       def rushee_params

@@ -1,13 +1,16 @@
 <% if signed_in? %>
    <div class="center">
       <h1>Welcome to RushRanker</h1>
-      <div class="span6">
+      <div class="span2">
+         <%= render 'shared/user_stats' %>
+      </div>
+      <div class="span5">
          <h3>Recent Comments</h3>
          <ol class="comments">
             <%= render @comments %>
          </ol>
       </div>
-      <div class="span5">
+      <div class="span4">
          <h3>Recent Additions</h3>
          <%= "#{@random.first_name} #{@random.last_name}" %>
       </div>

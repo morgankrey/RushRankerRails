@@ -3,7 +3,7 @@
   <aside class="span4 offset1">
      <section>
         <h1>
-          <%= image_tag @rushee.photo.url(:medium) %>
+          <%= image_tag @rushee.photo(:medium) %>
         </h1>
      </section>
   </aside>
@@ -57,7 +57,7 @@
   </aside>
   <aside class="span5 offset1">
     <h4>Brothers Met</h4>
-    Some other stuff
+    <%= render 'follow_form' if signed_in? %>
   </aside>
 </div>
 

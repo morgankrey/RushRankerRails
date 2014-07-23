@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
    has_many :comments, dependent: :destroy
+   has_many :relationships, dependent: :destroy
+   has_many :followed_rushees, through: :relationships, source: :rushee
    before_save { self.email = email.downcase }
    before_create :create_remember_token
 
@@ -24,6 +26,18 @@ class User < ActiveRecord::Base
 
    def User.encrypt(token)
       Digest::SHA1.hexdigest(token.to_s)
+   end
+
+   def following?(rushee)
+      relationships.find_by(rushee_id: rushee.id)
+   end
+
+   def follow!(rushee)
+      relationships.create!(rushee_id: rushee.id)
+   end
+
+   def unfollow!(rushee)
+      relationships.find_by(rushee_id: rushee.id).destroy
    end
 
    private
